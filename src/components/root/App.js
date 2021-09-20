@@ -5,6 +5,7 @@ import { Content } from "../content";
 import { Footer } from "../footer";
 import { NotFound } from "../notFound";
 import { Contact } from "../contact/Contact";
+import { Login } from "../login";
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
       <Switch>
         <Route exact path="/" component={Content} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/login" component={Login} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

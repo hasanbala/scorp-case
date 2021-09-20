@@ -3,7 +3,11 @@
       "navi" : {        
         "home" : "Anasayfa",
         "contact" : "İletişim",
-        "logs" : "Login"
+        "login" : "Giriş",
+        "logout" : "Çıkış",
+        "loginTitle" : "Üye Girişi",
+        "loginButton" : "Giriş Yap"
+
       },
       "content" : {
         "loremTitle" : "Lorem Ipsum Nedir?",

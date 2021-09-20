@@ -4,7 +4,9 @@
         "home" : "Home Page",
         "contact" : "Contact",
         "login" : "Login",
-        "logout" : "Logout"
+        "logout" : "Logout",
+        "loginTitle" : "Member Login",
+        "loginButton" : "Sign In"
 
       },
       "content" : {
