@@ -1,0 +1,69 @@
+{
+    "tr" : {
+      "navi" : {        
+        "home" : "Anasayfa",
+        "contact" : "İletişim",
+        "logs" : "Login"
+      },
+      "content" : {
+        "loremTitle" : "Lorem Ipsum Nedir?",
+        "loremTitleContents" : "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.",
+        "loremSubtitle" : "Nereden Gelmektedir?",
+        "LoremSubtitleContents" : "Yaygın inancın tersine, Lorem Ipsum rastgele sözcüklerden oluşmaz. Kökleri M.Ö. 45 tarihinden bu yana klasik Latin edebiyatına kadar uzanan 2000 yıllık bir geçmişi vardır. Virginia'daki Hampden-Sydney College'dan Latince profesörü Richard McClintock, bir Lorem Ipsum pasajında geçen ve anlaşılması en güç sözcüklerden biri olan 'consectetur' sözcüğünün klasik edebiyattaki örneklerini incelediğinde kesin bir kaynağa ulaşmıştır. Lorm Ipsum, Çiçero tarafından M.Ö. 45 tarihinde kaleme alınan \"de Finibus Bonorum et Malorum\" (İyi ve Kötünün Uç Sınırları) eserinin 1.10.32 ve 1.10.33 sayılı bölümlerinden gelmektedir. Bu kitap, ahlak kuramı üzerine bir tezdir ve Rönesans döneminde çok popüler olmuştur. Lorem Ipsum pasajının ilk satırı olan \"Lorem ipsum dolor sit amet\" 1.10.32 sayılı bölümdeki bir satırdan gelmektedir.1500'lerden beri kullanılmakta olan standard Lorem Ipsum metinleri ilgilenenler için yeniden üretilmiştir. Çiçero tarafından yazılan 1.10.32 ve 1.10.33 bölümleri de 1914 H. Rackham çevirisinden alınan İngilizce sürümleri eşliğinde özgün biçiminden yeniden üretilmiştir."
+      },
+      "footer" : {
+        "docs" : {
+          "docsName" : "DOKÜMANLAR",
+          "installation" : "Kurulum",
+          "mainConcepts" : "Temel Kavramlar",
+          "advancedGuides" : "Gelişmiş Kılavuz",
+          "apiReference" : "API Kaynağı",
+          "hooks" : "Hook'lar",
+          "testing" : "Test Etmek",
+          "contributing" : "Katkı Sağlamak",
+          "faq" : "SSS"
+        },
+        "channels" : {
+          "channelsName" : "KANALLAR",
+          "gitHub" : "GitHub",
+          "stackOverflow" : "Stack Overflow",
+          "discussionForums" : "Tartışma Forumları",
+          "devCommunity" : "DEV Topluluğu",
+          "facebook" : "Facebook",
+          "twitter" : "Twitter"
+        },
+        "more" : {
+          "moreName" : "DAHA FAZLASI",
+          "tutorial" : "Öğretici",
+          "blog" : "Blog",
+          "acknowledgements" : "Katkıda Bulunanlar",
+          "privacy" : "Gizlilik",
+          "terms" : "Şartlar"
+        },      
+        "community" : {
+          "communityName" : "TOPLULUK",
+          "codeofConduct" : "Yönetim Kodu",
+          "communityResources" : "Topluluk Kaynakları"
+        }
+      },
+      "contact" : {
+        "title" : "Bizimle İletişime Geçin",
+        "firstName" : "Ad",
+        "firstNameHolder" : "Adınız",
+        "firstNameValid" : "Lütfen geçerli bir ad giriniz.",
+        "lastName" : "Soyad",
+        "lastNameHolder" : "Soyadınız",
+        "lastNameValid" : "Lütfen geçerli bir soyad giriniz.",
+        "email" : "Mail",
+        "emailValid" : "Lütfen iletişim formu için geçerli bir e-posta adresi girin.",
+        "phoneNumber" : "Telefon Numarası",
+        "phoneNumberValid" : "Lütfen geçerli bir numara giriniz.",
+        "country" : "Ülke",
+        "countryValid" : "Lütfen geçerli bir ülke seçiniz.",
+        "textarea" : "Mesaj",
+        "textareaHolder" : "Mesajınız ..",
+        "textareaValid" : "Lütfen geçerli bir mesaj giriniz.",
+        "button" : "GÖNDER"
+      }
+    }
+  }
