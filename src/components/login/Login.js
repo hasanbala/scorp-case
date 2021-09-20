@@ -29,7 +29,6 @@ export const Login = () => {
               <input
                 type="text"
                 className="form-control"
-                // name="firstName"
                 id="firstName"
                 placeholder={`${t("contact.firstNameHolder")}`}
                 required=""
@@ -46,7 +45,6 @@ export const Login = () => {
               <input
                 type="text"
                 className="form-control"
-                // name="lastName"
                 id="lastName"
                 placeholder={`${t("contact.lastNameHolder")}`}
                 required=""
@@ -64,7 +62,6 @@ export const Login = () => {
             <input
               type="email"
               className="form-control"
-              //   name="email"
               id="email"
               placeholder="email@example.com"
               required=""
