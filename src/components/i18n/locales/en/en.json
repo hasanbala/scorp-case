@@ -7,7 +7,8 @@
         "logout" : "Logout",
         "loginTitle" : "Member Login",
         "loginButton" : "Sign In",
-        "closeButton" : "Close"
+        "closeButton" : "Close",
+        "notFound" : "The page you were looking for was not found"
       },
       "content" : {
         "loremTitle" : "What is Lorem Ipsum?",

@@ -7,8 +7,8 @@
         "logout" : "Çıkış",
         "loginTitle" : "Üye Girişi",
         "loginButton" : "Giriş Yap",
-        "closeButton" : "Kapat"
-
+        "closeButton" : "Kapat",
+        "notFound" : "Aradığınız sayfa bulunamadı"
       },
       "content" : {
         "loremTitle" : "Lorem Ipsum Nedir?",

@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import "../i18n";
 
 export const Contact = () => {
+  const { t } = useTranslation("translations");
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [email, setEmail] = useState("");
@@ -52,8 +54,6 @@ export const Contact = () => {
     setOption("");
     setTextarea("");
   };
-
-  const { t } = useTranslation("translations");
 
   return (
     <div className="contact py-5 my-5">

@@ -30,6 +30,13 @@ export const Login = (props) => {
     props.onClose();
   };
 
+  const closeButton = () => {
+    setLoginLast("");
+    setLoginName("");
+    setLoginEmail("");
+    props.onClose();
+  };
+
   const renderLogin = () => {
     return (
       <div>
@@ -101,7 +108,7 @@ export const Login = (props) => {
         </Modal.Header>
         <Modal.Body>{renderLogin()}</Modal.Body>
         <Modal.Footer>
-          <Button variant="outline-danger" onClick={props.onClose}>
+          <Button variant="outline-danger" onClick={closeButton}>
             {t("navi.closeButton")}
           </Button>
         </Modal.Footer>

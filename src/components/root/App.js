@@ -8,7 +8,7 @@ import { Contact } from "../contact/Contact";
 
 export const App = () => {
   return (
-    <div className="App">
+    <div>
       <Navi />
       <Switch>
         <Route exact path="/" component={Content} />

@@ -31,6 +31,11 @@ export const Navi = () => {
     setLoginEmail("");
   };
 
+  const linkStyle = {
+    margin: "10px",
+    textDecoration: "none",
+  };
+
   const inside = () => {
     return (
       <li className="nav-item dropdown">
@@ -74,11 +79,6 @@ export const Navi = () => {
     );
   };
 
-  const linkStyle = {
-    margin: "10px",
-    textDecoration: "none",
-  };
-
   return (
     <div className="Navi">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -98,7 +98,7 @@ export const Navi = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
-              <div className="ui secondary  menu">
+              <div className="ui secondary menu">
                 <Link className="item" to="/" style={linkStyle}>
                   {t("navi.home")}
                 </Link>
