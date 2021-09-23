@@ -31,12 +31,20 @@ export const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("firstName : " + firstName);
-    console.log("lastName : " + lastName);
-    console.log("email : " + email);
-    console.log("phoneNumber : " + phoneNumber);
-    console.log("option : " + option);
-    console.log("textarea : " + textarea);
+    console.log(
+      "First Name : " +
+        firstName +
+        "\nLast Name : " +
+        lastName +
+        "\nEmail : " +
+        email +
+        "\nPhone Number : " +
+        phoneNumber +
+        "\nOption : " +
+        option +
+        "\nTextarea : " +
+        textarea
+    );
     setFirstName("");
     setlastName("");
     setEmail("");
@@ -60,10 +68,10 @@ export const Contact = () => {
               <input
                 type="text"
                 className="form-control"
-                // name="firstName"
+                name="firstName"
                 id="firstName"
                 placeholder={`${t("contact.firstNameHolder")}`}
-                required=""
+                required
                 value={firstName}
                 onChange={changefirstName}
               ></input>
@@ -77,11 +85,10 @@ export const Contact = () => {
               <input
                 type="text"
                 className="form-control"
-                // name="lastName"
+                name="lastName"
                 id="lastName"
                 placeholder={`${t("contact.lastNameHolder")}`}
-                required=""
-                // eslint-disable-next-line no-undef
+                required
                 value={lastName}
                 onChange={changelastName}
               ></input>
@@ -98,10 +105,10 @@ export const Contact = () => {
             <input
               type="email"
               className="form-control"
-              //   name="email"
+              name="email"
               id="email"
               placeholder="email@example.com"
-              required=""
+              required
               value={email}
               onChange={changeemail}
             ></input>
@@ -112,11 +119,11 @@ export const Contact = () => {
             <label htmlFor="phoneNumber">{t("contact.phoneNumber")}</label>
             <input
               type="text"
-              //   name="phoneNumber"
+              name="phoneNumber"
               id="phoneNumber"
               className="form-control"
               placeholder="+1 (999) 999 9999"
-              required=""
+              required
               value={phoneNumber}
               onChange={changephoneNumber}
             ></input>
@@ -131,7 +138,7 @@ export const Contact = () => {
               <select
                 className="custom-select d-block w-100"
                 id="country"
-                required=""
+                required
                 value={option}
                 onChange={changesetOption}
               >
@@ -156,20 +163,21 @@ export const Contact = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="textarea">{t("contact.countryValid")}</label>
+            <label htmlFor="textarea">{t("contact.textarea")}</label>
             <textarea
               className="form-control"
               id="textarea"
-              //   name="textarea"
+              name="textarea"
               placeholder={`${t("contact.textareaHolder")}`}
               rows="3"
+              required
               value={textarea}
               onChange={changetextarea}
             ></textarea>
             <div className="invalid-feedback">{t("contact.textareaValid")}</div>
           </div>
 
-          <button className="btn btn-primary btn-lg btn-block" type="submit">
+          <button className="btn btn-warning btn-lg btn-block" type="submit">
             {t("contact.button")}
           </button>
         </form>

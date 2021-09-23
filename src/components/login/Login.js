@@ -1,28 +1,39 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { UserContext } from "../context";
 import "../i18n";
 
-export const Login = () => {
+export const Login = (props) => {
   const { t } = useTranslation("translations");
 
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
+  const { loginName, setLoginName } = useContext(UserContext);
+  const [loginLast, setLoginLast] = useState("");
+  const { loginEmail, setLoginEmail } = useContext(UserContext);
+  const { setIsLogin } = useContext(UserContext);
+  const { showModal } = useContext(UserContext);
 
-  const changefirstName = (event) => {
-    setFirstName(event.target.value);
+  const changeloginName = (event) => {
+    setLoginName(() => event.target.value);
+  };
+  const changeloginLast = (event) => {
+    setLoginLast(event.target.value);
+  };
+  const changeloginEmail = (event) => {
+    setLoginEmail(() => event.target.value);
   };
 
-  const changeemail = (event) => {
-    setEmail(event.target.value);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsLogin((isLogin) => !isLogin);
+    setLoginLast("");
+    props.onClose();
   };
 
-  return (
-    <div className="contact py-5 my-5">
-      <div className="container col-md-8 order-md-1">
-        <div className="mb-3 text-center">
-          <h2 className="font-weight-bold ">{t("navi.loginTitle")}</h2>
-        </div>
-        <form className="needs-validation">
+  const renderLogin = () => {
+    return (
+      <div>
+        <form className="needs-validation" onSubmit={handleSubmit}>
           <div className="row">
             <div className=" mb-3">
               <label htmlFor="firstName">{t("contact.firstName")}</label>
@@ -31,9 +42,9 @@ export const Login = () => {
                 className="form-control"
                 id="firstName"
                 placeholder={`${t("contact.firstNameHolder")}`}
-                required=""
-                value={firstName}
-                onChange={changefirstName}
+                required
+                value={loginName}
+                onChange={changeloginName}
               ></input>
               <div className="invalid-feedback">
                 {t("contact.firstNameValid")}
@@ -47,7 +58,9 @@ export const Login = () => {
                 className="form-control"
                 id="lastName"
                 placeholder={`${t("contact.lastNameHolder")}`}
-                required=""
+                required
+                value={loginLast}
+                onChange={changeloginLast}
               ></input>
               <div className="invalid-feedback">
                 {t("contact.lastNameValid")}
@@ -64,17 +77,35 @@ export const Login = () => {
               className="form-control"
               id="email"
               placeholder="email@example.com"
-              required=""
-              value={email}
-              onChange={changeemail}
+              required
+              value={loginEmail}
+              onChange={changeloginEmail}
             ></input>
             <div className="invalid-feedback">{t("contact.emailValid")}</div>
           </div>
-          <button className="btn btn-primary btn-lg btn-block" type="submit">
+          <Button className="btn btn-primary btn-lg btn-block" type="submit">
             {t("navi.loginButton")}
-          </button>
+          </Button>
         </form>
       </div>
+    );
+  };
+
+  return (
+    <div>
+      <Modal show={showModal} onHide={props.onClose}>
+        <Modal.Header closeButton={true}>
+          <div>
+            <h2>{t("navi.login")}</h2>
+          </div>
+        </Modal.Header>
+        <Modal.Body>{renderLogin()}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="outline-danger" onClick={props.onClose}>
+            {t("navi.closeButton")}
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

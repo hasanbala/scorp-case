@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { Button, Dropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { Login } from "../login";
+import { UserContext } from "../context";
 import "../i18n";
 
 export const Navi = () => {
@@ -10,16 +13,29 @@ export const Navi = () => {
     i18n.changeLanguage(e.target.value);
   };
 
-  const [isLogin, setIsLogin] = useState("false");
+  const { showModal, setShowModal } = useContext(UserContext);
+  const { isLogin, setIsLogin } = useContext(UserContext);
+  const { loginName, setLoginName } = useContext(UserContext);
+  const { loginEmail, setLoginEmail } = useContext(UserContext);
 
-  const exitLogin = () => {
-    setIsLogin("true");
+  const close = () => {
+    setShowModal(() => !showModal);
+  };
+  const open = () => {
+    setShowModal(() => !showModal);
   };
 
-  function log() {
+  const handleExit = () => {
+    setIsLogin((isLogin) => !isLogin);
+    setLoginName("");
+    setLoginEmail("");
+  };
+
+  const inside = () => {
     return (
       <li className="nav-item dropdown">
-        <a
+        <Dropdown.Toggle
+          variant="warning"
           className="nav-link dropdown-toggle"
           data-toggle="dropdown"
           href="/#"
@@ -27,35 +43,36 @@ export const Navi = () => {
           aria-haspopup="true"
           aria-expanded="false"
         >
-          NAME
-        </a>
+          {loginName}
+        </Dropdown.Toggle>
         <div className="dropdown-menu">
-          <div className="dropdown-item">email</div>
+          <div className="dropdown-item"> {loginEmail} </div>
           <div className="dropdown-divider" />
-          <div className="dropdown-item btn" onClick={exitLogin}>
+          <div className="dropdown-item btn" onClick={handleExit}>
             {t("navi.logout")}
           </div>
         </div>
       </li>
     );
-  }
+  };
 
-  function unlog() {
+  const outside = () => {
     return (
       <li className="nav-item dropdown">
-        <Link
-          className="nav-link dropdown-toggle"
-          data-toggle="dropdown"
+        <Dropdown.Toggle
+          variant="outline-primary"
+          className="btn dropdown-toggle"
           role="button"
+          // data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          to="/login"
+          onClick={open}
         >
           {t("navi.login")}
-        </Link>
+        </Dropdown.Toggle>
       </li>
     );
-  }
+  };
 
   const linkStyle = {
     margin: "10px",
@@ -81,21 +98,17 @@ export const Navi = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item ">
-                <Link to="/" style={linkStyle}>
-                  {t("navi.home")}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/contact" style={linkStyle}>
-                  {t("navi.contact")}
-                </Link>
-              </li>
+              <Link className="nav-item " to="/" style={linkStyle}>
+                {t("navi.home")}
+              </Link>
+              <Link className="nav-item" to="/contact" style={linkStyle}>
+                {t("navi.contact")}
+              </Link>
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item">
-                <button
-                  className="btn btn-outline-warning"
+                <Button
+                  variant="outline-warning"
                   type="button"
                   name="language"
                   value="tr"
@@ -103,11 +116,11 @@ export const Navi = () => {
                   onClick={changeLanguage}
                 >
                   TR
-                </button>
+                </Button>
               </li>
               <li className="nav-item">
-                <button
-                  className="btn btn-outline-warning"
+                <Button
+                  variant="outline-warning"
                   type="button"
                   name="language"
                   value="en"
@@ -115,9 +128,10 @@ export const Navi = () => {
                   onClick={changeLanguage}
                 >
                   EN
-                </button>
+                </Button>
               </li>
-              {isLogin === "true" ? log() : unlog()}
+              {isLogin ? inside() : outside()}
+              <Login showModal={showModal} onClose={close} />
             </ul>
           </div>
         </div>

@@ -6,8 +6,8 @@
         "login" : "Login",
         "logout" : "Logout",
         "loginTitle" : "Member Login",
-        "loginButton" : "Sign In"
-
+        "loginButton" : "Sign In",
+        "closeButton" : "Close"
       },
       "content" : {
         "loremTitle" : "What is Lorem Ipsum?",
@@ -64,7 +64,7 @@
         "phoneNumberValid" : "Please enter a valid phone number.",
         "country" : "Country",
         "countryValid" : "Please enter a valid country.",
-        "textarea" : "Textarea",
+        "textarea" : "Message",
         "textareaHolder" : "Your message ..",
         "textareaValid" : "Please enter a valid message.",
         "button" : "SEND"

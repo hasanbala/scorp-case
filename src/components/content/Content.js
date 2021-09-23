@@ -9,14 +9,10 @@ export const Content = () => {
       <div className="py-5 text-center">
         <h1 className="display-5 fw-bold mb-5">Lorem Ipsum</h1>
         <div className="col-lg-6 mx-auto">
-          <p className="lead mb-4 py-">
-            <h3 className="mb-3">{t("content.loremTitle")}</h3>
-            {t("content.loremTitleContents")}
-          </p>
-          <p className="lead mb-4 py-5">
-            <h3 className="mb-3"> {t("content.loremSubtitle")}</h3>
-            {t("content.LoremSubtitleContents")}
-          </p>
+          <h3 className="mb-3 pt-5">{t("content.loremTitle")}</h3>
+          <p className="lead mb-4 ">{t("content.loremTitleContents")}</p>
+          <h3 className="mb-3 pt-5"> {t("content.loremSubtitle")}</h3>
+          <p className="lead mb-4 ">{t("content.LoremSubtitleContents")}</p>
         </div>
       </div>
     </div>

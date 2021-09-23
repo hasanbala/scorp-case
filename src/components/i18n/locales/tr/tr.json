@@ -6,7 +6,8 @@
         "login" : "Giriş",
         "logout" : "Çıkış",
         "loginTitle" : "Üye Girişi",
-        "loginButton" : "Giriş Yap"
+        "loginButton" : "Giriş Yap",
+        "closeButton" : "Kapat"
 
       },
       "content" : {
