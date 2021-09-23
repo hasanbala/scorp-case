@@ -98,13 +98,16 @@ export const Navi = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
-              <Link className="nav-item " to="/" style={linkStyle}>
-                {t("navi.home")}
-              </Link>
-              <Link className="nav-item" to="/contact" style={linkStyle}>
-                {t("navi.contact")}
-              </Link>
+              <div className="ui secondary  menu">
+                <Link className="item" to="/" style={linkStyle}>
+                  {t("navi.home")}
+                </Link>
+                <Link className="item" to="/contact" style={linkStyle}>
+                  {t("navi.contact")}
+                </Link>
+              </div>
             </ul>
+
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Button
