@@ -9,34 +9,33 @@ import "../i18n";
 export const Contact = () => {
   const { t } = useTranslation("translations");
 
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [option, setOption] = useState("");
-  const [textarea, setTextarea] = useState("");
+  const [form, setForm] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    phone: "",
+    option: "",
+    textarea: "",
+  });
 
-  const changefname = (e) => setFname(e.target.value);
-  const changelname = (e) => setLname(e.target.value);
-  const changeemail = (e) => setEmail(e.target.value);
-  const changephone = (e) => setPhone(e.target.value);
-  const changesetOption = (e) => setOption(e.target.value);
-  const changetextarea = (e) => setTextarea(e.target.value);
-  const temp = { fname, lname, email, phone, option, textarea };
+  const changeForm = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!Validate(fname, lname, email, phone, option, textarea)) {
+    if (!Validate(form)) {
       return;
     }
     toast.success("Your registration has been received ", stylex);
-    console.log(temp);
-    setFname("");
-    setLname("");
-    setEmail("");
-    setPhone("");
-    setOption("");
-    setTextarea("");
+    console.log(form);
+    setForm({
+      fname: "",
+      lname: "",
+      email: "",
+      phone: "",
+      option: "",
+      textarea: "",
+    });
   };
 
   return (
@@ -49,37 +48,38 @@ export const Contact = () => {
         <div className="contact-sub">
           <form className="contact-forms" onSubmit={handleSubmit}>
             <Input
-              className="fname"
               type="text"
               placeholder="contact.firstNameHolder"
-              value={fname}
-              onChange={changefname}
+              name="fname"
+              value={form.fname}
+              onChange={changeForm}
             />
             <Input
-              className="lname"
               type="text"
               placeholder="contact.lastNameHolder"
-              value={lname}
-              onChange={changelname}
+              name="lname"
+              value={form.lname}
+              onChange={changeForm}
             />
             <Input
-              className="email"
               type="email"
               placeholder="email@example.com"
-              value={email}
-              onChange={changeemail}
+              name="email"
+              value={form.email}
+              onChange={changeForm}
             />
             <Input
-              className="phone"
               type="text"
               placeholder="Format: 0500-000-0000"
-              value={phone}
-              onChange={changephone}
+              name="phone"
+              value={form.phone}
+              onChange={changeForm}
             />
             <select
               className="ftextarea"
-              value={option}
-              onChange={changesetOption}
+              value={form.option}
+              name="option"
+              onChange={changeForm}
             >
               <option>Choose...</option>
               <option>Australia</option>
@@ -98,8 +98,9 @@ export const Contact = () => {
             <textarea
               className="fmessage"
               placeholder={t("contact.textareaHolder")}
-              value={textarea}
-              onChange={changetextarea}
+              name="textarea"
+              value={form.textarea}
+              onChange={changeForm}
             ></textarea>
             <Button
               type="submit"
