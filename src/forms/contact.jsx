@@ -6,17 +6,19 @@ import { Validate, stylex } from "./validation";
 import "../styles/contact.css";
 import "../i18n";
 
+const initialValues = {
+  fname: "",
+  lname: "",
+  email: "",
+  phone: "",
+  option: "",
+  textarea: "",
+};
+
 export const Contact = () => {
   const { t } = useTranslation("translations");
 
-  const [form, setForm] = useState({
-    fname: "",
-    lname: "",
-    email: "",
-    phone: "",
-    option: "",
-    textarea: "",
-  });
+  const [form, setForm] = useState(initialValues);
 
   const changeForm = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,14 +30,7 @@ export const Contact = () => {
     }
     toast.success("Your registration has been received ", stylex);
     console.log(form);
-    setForm({
-      fname: "",
-      lname: "",
-      email: "",
-      phone: "",
-      option: "",
-      textarea: "",
-    });
+    setForm(initialValues);
   };
 
   return (

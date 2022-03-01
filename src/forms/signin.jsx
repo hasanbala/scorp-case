@@ -38,6 +38,7 @@ export const SignIn = ({ showx, setShowx }) => {
                 className="fname"
                 type="text"
                 placeholder="contact.firstNameHolder"
+                name="fname"
                 value={logname}
                 onChange={changeLogname}
               />
@@ -45,6 +46,7 @@ export const SignIn = ({ showx, setShowx }) => {
                 className="femail"
                 type="email"
                 placeholder="email@example.com"
+                name="email"
                 value={logmail}
                 onChange={changeLogmail}
               />
@@ -52,6 +54,7 @@ export const SignIn = ({ showx, setShowx }) => {
                 className="fpassword"
                 type="password"
                 placeholder="Password"
+                name="password"
                 value={pass}
                 onChange={changePass}
               />
