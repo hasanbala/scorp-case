@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Input } from "../components";
+import { Button } from "../components";
 import { toast } from "react-toastify";
-import { Validate, stylex } from "./validation";
+import { validate, stylex } from "./validation";
 import "../styles/contact.css";
 import "../i18n";
 
@@ -25,7 +25,7 @@ export const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!Validate(form)) {
+    if (!validate(form)) {
       return;
     }
     toast.success("Your registration has been received ", stylex);
@@ -42,28 +42,28 @@ export const Contact = () => {
         </div>
         <div className="contact-sub">
           <form className="contact-forms" onSubmit={handleSubmit}>
-            <Input
+            <input
               type="text"
-              placeholder="contact.firstNameHolder"
+              placeholder={t("contact.firstNameHolder")}
               name="fname"
               value={form.fname}
               onChange={changeForm}
             />
-            <Input
+            <input
               type="text"
-              placeholder="contact.lastNameHolder"
+              placeholder={t("contact.lastNameHolder")}
               name="lname"
               value={form.lname}
               onChange={changeForm}
             />
-            <Input
+            <input
               type="email"
               placeholder="email@example.com"
               name="email"
               value={form.email}
               onChange={changeForm}
             />
-            <Input
+            <input
               type="text"
               placeholder="Format: 0500-000-0000"
               name="phone"

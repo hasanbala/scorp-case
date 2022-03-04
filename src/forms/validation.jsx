@@ -10,7 +10,7 @@ export const stylex = {
   progress: undefined,
 };
 
-export const Validate = (props) => {
+export const validate = (props) => {
   if (
     props.fname === "" ||
     props.lname === "" ||
@@ -19,6 +19,14 @@ export const Validate = (props) => {
     props.option === "" ||
     props.textarea === ""
   ) {
+    toast.error("Please, fill in the all blanks with valid values !!", stylex);
+    return false;
+  }
+  return true;
+};
+
+export const validateLogin = (logname, logmail, pass) => {
+  if (logname === "" || logmail === "" || pass === "") {
     toast.error("Please, fill in the all blanks with valid values !!", stylex);
     return false;
   }

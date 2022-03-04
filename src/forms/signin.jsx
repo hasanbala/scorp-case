@@ -1,14 +1,16 @@
+import { useTranslation } from "react-i18next";
 import { Modal } from "react-responsive-modal";
 import { useAppContext } from "../context";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { Button, Input } from "../components";
-import { Validate, stylex } from "./validation";
+import { Button } from "../components";
+import { validateLogin, stylex } from "./validation";
 import "../i18n";
 import "../styles/contact.css";
 import "react-responsive-modal/styles.css";
 
 export const SignIn = ({ showx, setShowx }) => {
+  const { t } = useTranslation("translations");
   const { logname, setLogname, logmail, setLogmail, log, setLog } =
     useAppContext();
   const onCloseModal = () => setLog(false);
@@ -19,11 +21,12 @@ export const SignIn = ({ showx, setShowx }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!Validate(logname, logmail, pass)) {
+    if (!validateLogin(pass, logname, logmail)) {
       return;
     }
     toast.success("Logged in baby, Congratulations", stylex);
     setShowx(!showx);
+    setPass("");
     setLog(!log);
   };
 
@@ -34,29 +37,29 @@ export const SignIn = ({ showx, setShowx }) => {
           <h2 style={{ color: "#000" }}>LOG IN</h2>
           <div className="contact-sub">
             <form className="contact-forms" onSubmit={handleSubmit}>
-              <Input
+              <input
                 className="fname"
                 type="text"
-                placeholder="contact.firstNameHolder"
-                name="fname"
+                placeholder={t("contact.firstNameHolder")}
                 value={logname}
                 onChange={changeLogname}
               />
-              <Input
+              <input
                 className="femail"
                 type="email"
                 placeholder="email@example.com"
-                name="email"
                 value={logmail}
                 onChange={changeLogmail}
+                autoComplete="hidden"
               />
-              <Input
+              <input
                 className="fpassword"
                 type="password"
                 placeholder="Password"
-                name="password"
                 value={pass}
                 onChange={changePass}
+                autoComplete="current-password"
+                minLength="8"
               />
               <Button
                 type="submit"
