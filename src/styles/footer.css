@@ -35,15 +35,23 @@
 }
 .footer-d {
   margin: auto 10%;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media screen and (max-width: 700px) {
+  .footer-d {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 450px) {
+  .footer-d {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .f1,
 .f2,
 .f3,
 .f4 {
-  flex: 1;
   margin-bottom: 60px;
   text-align: center;
 }

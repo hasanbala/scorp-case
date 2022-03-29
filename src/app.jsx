@@ -10,7 +10,7 @@ export const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Content} />
-        <Route exact path="/contact" component={Contact} />
+        <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

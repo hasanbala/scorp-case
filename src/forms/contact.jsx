@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useFormHook } from "../hooks";
 import { Button } from "../components";
 import { toast } from "react-toastify";
 import { validate, stylex } from "./validation";
@@ -17,11 +17,7 @@ const initialValues = {
 
 export const Contact = () => {
   const { t } = useTranslation("translations");
-
-  const [form, setForm] = useState(initialValues);
-
-  const changeForm = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const [form, setForm] = useFormHook(initialValues);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,34 +43,34 @@ export const Contact = () => {
               placeholder={t("contact.firstNameHolder")}
               name="fname"
               value={form.fname}
-              onChange={changeForm}
+              onChange={setForm}
             />
             <input
               type="text"
               placeholder={t("contact.lastNameHolder")}
               name="lname"
               value={form.lname}
-              onChange={changeForm}
+              onChange={setForm}
             />
             <input
               type="email"
               placeholder="email@example.com"
               name="email"
               value={form.email}
-              onChange={changeForm}
+              onChange={setForm}
             />
             <input
               type="text"
               placeholder="Format: 0500-000-0000"
               name="phone"
               value={form.phone}
-              onChange={changeForm}
+              onChange={setForm}
             />
             <select
               className="ftextarea"
               value={form.option}
               name="option"
-              onChange={changeForm}
+              onChange={setForm}
             >
               <option>Choose...</option>
               <option>Australia</option>
@@ -95,7 +91,7 @@ export const Contact = () => {
               placeholder={t("contact.textareaHolder")}
               name="textarea"
               value={form.textarea}
-              onChange={changeForm}
+              onChange={setForm}
             ></textarea>
             <Button
               type="submit"

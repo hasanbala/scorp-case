@@ -11,28 +11,25 @@ import "react-responsive-modal/styles.css";
 
 export const SignIn = ({ showx, setShowx }) => {
   const { t } = useTranslation("translations");
-  const { logname, setLogname, logmail, setLogmail, log, setLog } =
-    useAppContext();
-  const onCloseModal = () => setLog(false);
-  const changeLogname = (e) => setLogname(e.target.value);
-  const changeLogmail = (e) => setLogmail(e.target.value);
+  const { log, setLog } = useAppContext();
+  const onCloseModal = () => setLog({ ...log, log: false });
   const changePass = (e) => setPass(e.target.value);
   const [pass, setPass] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateLogin(pass, logname, logmail)) {
+    if (!validateLogin(log.pass, log.logname, log.logmail)) {
       return;
     }
     toast.success("Logged in baby, Congratulations", stylex);
     setShowx(!showx);
     setPass("");
-    setLog(!log);
+    setLog({ ...log, log: !log });
   };
 
   return (
     <div>
-      <Modal open={log} onClose={onCloseModal} center>
+      <Modal open={log.log} onClose={onCloseModal} center>
         <div className="contact">
           <h2 style={{ color: "#000" }}>LOG IN</h2>
           <div className="contact-sub">
@@ -40,16 +37,18 @@ export const SignIn = ({ showx, setShowx }) => {
               <input
                 className="fname"
                 type="text"
+                name="logname"
                 placeholder={t("contact.firstNameHolder")}
-                value={logname}
-                onChange={changeLogname}
+                value={log.logname}
+                onChange={setLog}
               />
               <input
                 className="femail"
                 type="email"
+                name="logmail"
                 placeholder="email@example.com"
-                value={logmail}
-                onChange={changeLogmail}
+                value={log.logmail}
+                onChange={setLog}
                 autoComplete="hidden"
               />
               <input

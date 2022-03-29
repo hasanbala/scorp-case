@@ -13,14 +13,14 @@ import "../styles/navbar.css";
 import "../i18n";
 
 export const Navbar = () => {
-  const { logname, logmail, setLog, setLogname, setLogmail } = useAppContext();
+  const { log, setLog, initialLogValues } = useAppContext();
   const changeLanguage = (e) => i18n.changeLanguage(e.target.value);
   const { t, i18n } = useTranslation("translations");
   const [show, setShow] = useState(false);
-  const onOpenModal = () => setLog(true);
+  const onOpenModal = () => setLog({ ...log, log: true });
   const openNav = useRef();
-  const closeNavX = useRef();
   const closeNav = useRef();
+  const closeNavX = useRef();
 
   useEffect(() => {
     openNav.current.onclick = () => {
@@ -37,8 +37,7 @@ export const Navbar = () => {
   const handleExit = () => {
     toast.warning("Logged out baby", stylex);
     setShow(!show);
-    setLogname("");
-    setLogmail("");
+    setLog(initialLogValues);
   };
 
   return (
@@ -85,7 +84,7 @@ export const Navbar = () => {
             <i className="fas fa-align-justify" />
           </li>
           {show
-            ? LoggedIn(logname, logmail, handleExit)
+            ? LoggedIn(log.logname, log.logmail, handleExit)
             : LoggedOut(onOpenModal)}
           <li
             className="item"

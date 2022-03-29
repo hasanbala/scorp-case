@@ -1,22 +1,17 @@
-import { useContext, useState, createContext } from "react";
+import { useContext, createContext } from "react";
+import { useLogHook } from "../hooks/useLogHook";
 
 export const UserContext = createContext();
 export const useAppContext = () => useContext(UserContext);
+const initialLogValues = { logname: "", logmail: "", log: false };
 
 export const UserContextProvider = ({ children }) => {
-  const [logname, setLogname] = useState("");
-  const [logmail, setLogmail] = useState("");
-  const [log, setLog] = useState(false);
-
+  const [log, setLog] = useLogHook(initialLogValues);
   const contextValue = {
-    logname,
-    setLogname,
-    logmail,
-    setLogmail,
     log,
     setLog,
+    initialLogValues,
   };
-
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   );
