@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 export const useLogHook = (params) => {
   const [state, setState] = useState(params);
   const handleChange = (event) => {

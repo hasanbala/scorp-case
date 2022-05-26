@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar, NotFound, Footer, Content } from "./pages";
 import { Contact } from "./forms";
 import { ToastContainer } from "react-toastify";
@@ -8,13 +8,13 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <Switch>
-        <Route exact path="/" component={Content} />
-        <Route path="/contact" component={Contact} />
-        <Route component={NotFound} />
-      </Switch>
+      <Routes>
+        <Route exact path='/' element={<Content />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route element={<NotFound />} />
+      </Routes>
       <Footer />
-      <ToastContainer theme="colored" />
+      <ToastContainer theme='colored' />
     </BrowserRouter>
   );
 };

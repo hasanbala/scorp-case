@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { Modal } from "react-responsive-modal";
-import { useAppContext } from "../context";
+import { useAppContext } from "context";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { Button } from "../components";
+import { Button } from "components";
 import { validateLogin, stylex } from "./validation";
-import "../i18n";
-import "../styles/contact.css";
+import "i18n";
+import "styles/contact.css";
 import "react-responsive-modal/styles.css";
 
 export const SignIn = ({ showx, setShowx }) => {
@@ -30,40 +30,40 @@ export const SignIn = ({ showx, setShowx }) => {
   return (
     <div>
       <Modal open={log.log} onClose={onCloseModal} center>
-        <div className="contact">
+        <div className='contact'>
           <h2 style={{ color: "#000" }}>LOG IN</h2>
-          <div className="contact-sub">
-            <form className="contact-forms" onSubmit={handleSubmit}>
+          <div className='contact-sub'>
+            <form className='contact-forms' onSubmit={handleSubmit}>
               <input
-                className="fname"
-                type="text"
-                name="logname"
+                className='fname'
+                type='text'
+                name='logname'
                 placeholder={t("contact.firstNameHolder")}
                 value={log.logname}
                 onChange={setLog}
               />
               <input
-                className="femail"
-                type="email"
-                name="logmail"
-                placeholder="email@example.com"
+                className='femail'
+                type='email'
+                name='logmail'
+                placeholder='email@example.com'
                 value={log.logmail}
                 onChange={setLog}
-                autoComplete="hidden"
+                autoComplete='hidden'
               />
               <input
-                className="fpassword"
-                type="password"
-                placeholder="Password"
+                className='fpassword'
+                type='password'
+                placeholder='Password'
                 value={pass}
                 onChange={changePass}
-                autoComplete="current-password"
-                minLength="8"
+                autoComplete='current-password'
+                minLength='8'
               />
               <Button
-                type="submit"
-                className="btn-hover color-3"
-                data="contact.button"
+                type='submit'
+                className='btn-hover color-3'
+                data='contact.button'
               />
             </form>
           </div>

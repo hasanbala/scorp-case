@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
-import "../styles/content.css";
+import "styles/content.css";
 
 export const Content = () => {
   const { t } = useTranslation("translations");
 
   return (
-    <div className="about-us">
+    <div className='about-us'>
       <h1>Lorem Ipsum</h1>
       <div>
         <h3>{t("content.loremTitle")}</h3>

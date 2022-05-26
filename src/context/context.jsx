@@ -1,5 +1,5 @@
+import { useLogHook } from "hooks/useLogHook";
 import { useContext, createContext } from "react";
-import { useLogHook } from "../hooks/useLogHook";
 
 export const UserContext = createContext();
 export const useAppContext = () => useContext(UserContext);

@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { useFormHook } from "../hooks";
-import { Button } from "../components";
+import { Button } from "components";
 import { toast } from "react-toastify";
 import { validate, stylex } from "./validation";
-import "../styles/contact.css";
-import "../i18n";
+import { useFormHook } from "hooks/useFormHook";
+import "styles/contact.css";
+import "i18n";
 
 const initialValues = {
   fname: "",
@@ -31,47 +31,46 @@ export const Contact = () => {
 
   return (
     <div>
-      <div className="contact">
-        <div className="contact-body">
+      <div className='contact'>
+        <div className='contact-body'>
           <h2>{t("contact.title")}</h2>
-          <hr className="main-hr" />
+          <hr className='main-hr' />
         </div>
-        <div className="contact-sub">
-          <form className="contact-forms" onSubmit={handleSubmit}>
+        <div className='contact-sub'>
+          <form className='contact-forms' onSubmit={handleSubmit}>
             <input
-              type="text"
+              type='text'
               placeholder={t("contact.firstNameHolder")}
-              name="fname"
+              name='fname'
               value={form.fname}
               onChange={setForm}
             />
             <input
-              type="text"
+              type='text'
               placeholder={t("contact.lastNameHolder")}
-              name="lname"
+              name='lname'
               value={form.lname}
               onChange={setForm}
             />
             <input
-              type="email"
-              placeholder="email@example.com"
-              name="email"
+              type='email'
+              placeholder='email@example.com'
+              name='email'
               value={form.email}
               onChange={setForm}
             />
             <input
-              type="text"
-              placeholder="Format: 0500-000-0000"
-              name="phone"
+              type='text'
+              placeholder='Format: 0500-000-0000'
+              name='phone'
               value={form.phone}
               onChange={setForm}
             />
             <select
-              className="ftextarea"
+              className='ftextarea'
               value={form.option}
-              name="option"
-              onChange={setForm}
-            >
+              name='option'
+              onChange={setForm}>
               <option>Choose...</option>
               <option>Australia</option>
               <option>Brazil</option>
@@ -87,16 +86,15 @@ export const Contact = () => {
               <option>United Kingdom</option>
             </select>
             <textarea
-              className="fmessage"
+              className='fmessage'
               placeholder={t("contact.textareaHolder")}
-              name="textarea"
+              name='textarea'
               value={form.textarea}
-              onChange={setForm}
-            ></textarea>
+              onChange={setForm}></textarea>
             <Button
-              type="submit"
-              className="btn-hover color-3"
-              data="contact.button"
+              type='submit'
+              className='btn-hover color-3'
+              data='contact.button'
             />
           </form>
         </div>

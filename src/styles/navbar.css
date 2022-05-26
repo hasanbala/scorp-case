@@ -104,7 +104,7 @@ h2 {
 }
 .overlay {
   height: 100%;
-  width: var(--nav-width);
+  width: 0%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -114,6 +114,10 @@ h2 {
   overflow-x: hidden;
   transition: 0.5s;
 }
+.overlayclick {
+  width: 100% !important;
+}
+
 .overlay-content {
   position: relative;
   top: 25%;
