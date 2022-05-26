@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -10,8 +11,13 @@ export const Toggle = ({
 }) => {
   const { t } = useTranslation("translations");
 
+  const toggleStyle = clsx({
+    ["overlay overlayclick"]: toggle === true,
+    ["overlay"]: toggle === false,
+  });
+
   return (
-    <div id='myNav' className={toggle ? "overlay overlayclick" : "overlay"}>
+    <div id='myNav' className={toggleStyle}>
       <a href='#!' className='closebtn' onClick={handleOpenToggle}>
         &times;
       </a>
